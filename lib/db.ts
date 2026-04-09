@@ -1,11 +1,8 @@
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'medical_assignment',
-  password: '123', 
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false } // Mandatory for cloud connections
 });
 
 export default pool;
